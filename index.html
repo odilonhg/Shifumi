@@ -10,23 +10,28 @@
     <body>
         <header>
             <h1>Shifumi</h1>
+            <h2>Saurez-vous battre l'IA ?</h2>
         </header>
         <main>
             <section id="buttons-section">
-                <button type="button" class="choice-buttons" id="rock-button">Pierre</button>
-                <button type="button" class="choice-buttons" id="paper-button">Feuille</button>
-                <button type="button" class="choice-buttons" id="scissors-button">Ciseau</button>
+                <button type="button" class="choice-buttons" id="rock-button" onclick="play(0)">Pierre</button>
+                <button type="button" class="choice-buttons" id="paper-button" onclick="play(1)">Feuille</button>
+                <button type="button" class="choice-buttons" id="scissors-button" onclick="play(2)">Ciseaux</button>
             </section>
             
             <section id="results-section">
-                <a class="results-labells" id="victory-labell">Victoire: 0</a>
-                <a class="results-labells" id="draw-labell">Egalité: 0</a>
-                <a class="results-labells" id="defeat-labell">Défaite: 0</a>
+                <p id="ia-choice"></p>
+                <p class="results-labells" id="victory-labell">Victoire: 0</p>
+                <p class="results-labells" id="draw-labell">Egalité: 0</p>
+                <p class="results-labells" id="defeat-labell">Défaite: 0</p>
             </section>
 
             <section id="reset-section">
-                <button id="reset-button">Réinitialiser le tableau des scores</button>
+                <button id="reset-button" onclick="resetScore()">Réinitialiser le tableau des scores</button>
             </section>
         </main>
+        <footer>
+            <p>© 2026 Dylan MESNAGE</p>
+        </footer>
     </body>
 </html>

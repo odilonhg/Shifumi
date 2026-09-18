@@ -5,52 +5,76 @@ let labells = {
 };
 
 let values = {
-    victory: 3,
-    defeat: 2,
-    draw: 1
+    victory: 0,
+    defeat: 0,
+    draw: 0
 };
 
-labells.victory.textContent = "Test, vous me recevez ?";
+let ia_choice = document.getElementById("ia-choice");
 
 /**
  * Updates the display counters for victories, defeats and draws
- *
- * @param {HTMLElement} labellVictory - The labell about the victories that is updated
- * @param {HTMLElement} labellDefeat - The labell about the defeats that is updated
- * @param {HTMLElement} labellDraw - The labell about the equalities that is updated
- * @param {number} nbVictories
- * @param {number} nbDefeats
- * @param {number} nbDraws
  * @returns {void}
  */
-function refreshScore(labellVictory, labellDefeat, labellDraw, nbVictories, nbDefeats, nbDraws) {
-    if(nbVictories > 1) {
-        labellVictory.textContent = `Victoires : ${nbVictories}`;
+function refreshScore() {
+    if(values.victory > 1) {
+        labells.victory.textContent = `Victoires : ${values.victory}`;
     }
     else {
-        labellVictory.textContent = `Victoire : ${nbVictories}`;
+        labells.victory.textContent = `Victoire : ${values.victory}`;
     }
 
-    if(nbDefeats > 1) {
-        labellDefeat.textContent = `Défaites : ${nbDefeats}`;
+    if(values.defeat > 1) {
+        labells.defeat.textContent = `Défaites : ${values.defeat}`;
     }
     else {
-        labellDefeat.textContent = `Défaite : ${nbDefeats}`;
+        labells.defeat.textContent = `Défaite : ${values.defeat}`;
     }
 
-    if(nbDraws > 1) {
-        labellDraw.textContent = `Egalités : ${nbDraws}`;
+    if(values.draw > 1) {
+        labells.draw.textContent = `Egalités : ${values.draw}`;
     }
     else {
-        labellDraw.textContent = `Egalité : ${nbDraws}`;
+        labells.draw.textContent = `Egalité : ${values.draw}`;
     }
 }
 
-refreshScore(
-    labells.victory,
-    labells.defeat,
-    labells.draw,
-    values.victory,
-    values.defeat,
-    values.draw
-);
+/**
+ * Allow the user to play a round against the IA
+ * @param {int} move The choice of the user (determined with the button he pushed)
+ * @returns {void}
+ */
+function play(move) {
+    // The IA choose between 0 and 2;
+    let IA_choice = Math.floor(Math.random() * 3);
+    if(IA_choice == 0) {ia_choice.textContent = "L'IA a choisi Pierre !"}
+    else if (IA_choice == 1) {ia_choice.textContent = "L'IA a choisi Feuille !"}
+    else {ia_choice.textContent = "L'IA a choisi Ciseaux !"}
+
+    
+    if(move == 0 && IA_choice == 0) {values.draw += 1; refreshScore()}
+    else if(move == 0 && IA_choice == 1) {values.defeat += 1; refreshScore()}
+    else if(move == 0 && IA_choice == 2) {values.victory += 1; refreshScore()}
+
+    if(move == 1 && IA_choice == 0) {values.victory += 1; refreshScore()}
+    else if(move == 1 && IA_choice == 1) {values.draw += 1; refreshScore()}
+    else if(move == 1 && IA_choice == 2) {values.defeat += 1; refreshScore()}
+
+    if(move == 2 && IA_choice == 0) {values.defeat += 1; refreshScore()}
+    else if(move == 2 && IA_choice == 1) {values.victory += 1; refreshScore()}
+    else if(move == 2 && IA_choice == 2) {values.draw += 1; refreshScore()}
+}
+
+/**
+ * Allow the user to reset the scoring board
+ * @returns {void}
+ */
+function resetScore() {
+    values.victory = 0;
+    values.defeat = 0;
+    values.draw = 0;
+    refreshScore();
+}
+
+// Initialize the scoring board
+refreshScore();
