@@ -17,21 +17,21 @@ let ia_choice = document.getElementById("ia-choice");
  * @returns {void}
  */
 function refreshScore() {
-    if(values.victory > 1) {
+    if (values.victory > 1) {
         labells.victory.textContent = `Victoires : ${values.victory}`;
     }
     else {
         labells.victory.textContent = `Victoire : ${values.victory}`;
     }
 
-    if(values.defeat > 1) {
+    if (values.defeat > 1) {
         labells.defeat.textContent = `Défaites : ${values.defeat}`;
     }
     else {
         labells.defeat.textContent = `Défaite : ${values.defeat}`;
     }
 
-    if(values.draw > 1) {
+    if (values.draw > 1) {
         labells.draw.textContent = `Egalités : ${values.draw}`;
     }
     else {
@@ -47,22 +47,22 @@ function refreshScore() {
 function play(move) {
     // The IA choose between 0 and 2;
     let IA_choice = Math.floor(Math.random() * 3);
-    if(IA_choice == 0) {ia_choice.textContent = "L'IA a choisi Pierre !"}
-    else if (IA_choice == 1) {ia_choice.textContent = "L'IA a choisi Feuille !"}
-    else {ia_choice.textContent = "L'IA a choisi Ciseaux !"}
+    if (IA_choice == 0) { ia_choice.textContent = "L'IA a choisi Pierre !" }
+    else if (IA_choice == 1) { ia_choice.textContent = "L'IA a choisi Feuille !" }
+    else { ia_choice.textContent = "L'IA a choisi Ciseaux !" }
 
-    
-    if(move == 0 && IA_choice == 0) {values.draw += 1; refreshScore()}
-    else if(move == 0 && IA_choice == 1) {values.defeat += 1; refreshScore()}
-    else if(move == 0 && IA_choice == 2) {values.victory += 1; refreshScore()}
 
-    if(move == 1 && IA_choice == 0) {values.victory += 1; refreshScore()}
-    else if(move == 1 && IA_choice == 1) {values.draw += 1; refreshScore()}
-    else if(move == 1 && IA_choice == 2) {values.defeat += 1; refreshScore()}
+    if (move == 0 && IA_choice == 0) { values.draw += 1; refreshScore() }
+    else if (move == 0 && IA_choice == 1) { values.defeat += 1; refreshScore() }
+    else if (move == 0 && IA_choice == 2) { values.victory += 1; refreshScore() }
 
-    if(move == 2 && IA_choice == 0) {values.defeat += 1; refreshScore()}
-    else if(move == 2 && IA_choice == 1) {values.victory += 1; refreshScore()}
-    else if(move == 2 && IA_choice == 2) {values.draw += 1; refreshScore()}
+    if (move == 1 && IA_choice == 0) { values.victory += 1; refreshScore() }
+    else if (move == 1 && IA_choice == 1) { values.draw += 1; refreshScore() }
+    else if (move == 1 && IA_choice == 2) { values.defeat += 1; refreshScore() }
+
+    if (move == 2 && IA_choice == 0) { values.defeat += 1; refreshScore() }
+    else if (move == 2 && IA_choice == 1) { values.victory += 1; refreshScore() }
+    else if (move == 2 && IA_choice == 2) { values.draw += 1; refreshScore() }
 }
 
 /**
@@ -73,6 +73,7 @@ function resetScore() {
     values.victory = 0;
     values.defeat = 0;
     values.draw = 0;
+    ia_choice.textContent = "";
     refreshScore();
 }
 
