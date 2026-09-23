@@ -1,3 +1,17 @@
+async function loadModule() {
+    try {
+        let module = await import('./layout.js');
+
+        module.displayHeader();
+        module.displayFooter();
+    } catch {
+        document.querySelector('site-header').innerHTML = '<h1>Shifumi</h1><h2>Saurez-vous battre l\'IA ?</h2>';
+        document.querySelector('site-footer').innerHTML = '<p>© 2026 Dylan MESNAGE</p>';
+    }
+}
+
+loadModule();
+
 let labells = {
     victory: document.getElementById("victory-labell"),
     defeat: document.getElementById("defeat-labell"),

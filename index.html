@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Shifumi</title>
-        <link rel="stylesheet" href="styles/style.css">
-        <script defer src="scripts/script.js"></script>
-    </head>
-    <body>
-        <header>
-            <h1>Shifumi</h1>
-            <h2>Saurez-vous battre l'IA ?</h2>
-        </header>
-        <main>
-            <section id="buttons-section">
-                <button type="button" class="choice-buttons" id="rock-button" onclick="play(0)">Pierre</button>
-                <button type="button" class="choice-buttons" id="paper-button" onclick="play(1)">Feuille</button>
-                <button type="button" class="choice-buttons" id="scissors-button" onclick="play(2)">Ciseaux</button>
-            </section>
-            
-            <section id="results-section">
-                <p id="ia-choice"></p>
-                <p class="results-labells" id="victory-labell">Victoire: 0</p>
-                <p class="results-labells" id="draw-labell">Egalité: 0</p>
-                <p class="results-labells" id="defeat-labell">Défaite: 0</p>
-            </section>
 
-            <section id="reset-section">
-                <button id="reset-button" onclick="resetScore()">Réinitialiser le tableau des scores</button>
-            </section>
-        </main>
-        <footer>
-            <p>© 2026 Dylan MESNAGE</p>
-        </footer>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shifumi</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script defer src="scripts/script.js"></script>
+    <meta name="author" content="Dylan MESNAGE">
+    <meta name="description" content="Rock Paper Scissors game">
+</head>
+
+<body>
+    <site-header></site-header>
+    <main>
+        <section id="buttons-section">
+            <button type="button" class="choice-buttons" id="rock-button" onclick="play(0)">Pierre</button>
+            <button type="button" class="choice-buttons" id="paper-button" onclick="play(1)">Feuille</button>
+            <button type="button" class="choice-buttons" id="scissors-button" onclick="play(2)">Ciseaux</button>
+        </section>
+
+        <section id="results-section">
+            <p id="ia-choice"></p>
+            <p class="results-labells" id="victory-labell">Victoire: 0</p>
+            <p class="results-labells" id="draw-labell">Egalité: 0</p>
+            <p class="results-labells" id="defeat-labell">Défaite: 0</p>
+        </section>
+
+        <section id="reset-section">
+            <button id="reset-button" onclick="resetScore()">Réinitialiser le tableau des scores</button>
+        </section>
+    </main>
+    <site-footer></site-footer>
+</body>
+
 </html>
